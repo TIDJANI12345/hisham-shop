@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .contact {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+
+
+.contact button {
+  padding: 0.75rem;
+  background: #25d366;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="logo">HISHAM<span>SHOP</span></div>
+      <div class="cart">453722002837 CFA</div>
+    </div>
+
+    <nav id="nav-links" class="hidden">
+      <a href="index.html">Accueil</a>
+      <a href="boutique.html">Boutique</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <main class="contact">
+    <section class="contact-section">
+      <h2>Contactez-nous</h2>
+      <form id="contactform">
+        <input type="text" name="nom" placeholder="Votre nom" required />
+        <textarea name="message" placeholder="Votre message" rox="5" required></textarea>
+        <button type="submit">Envoyer sur WhatsApp</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nom = document.getElementById('nom').value;
+      const message = document.getElementById('message').value;
+      const url = `https://wa.me/2290196704876?text=Bonjour,%20je%20suis%20${encodeURIComponent(nom)}.%20${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>
