@@ -5,56 +5,49 @@ const produits = [
     image: "images/parfum.jpg",
     description: "Huile de parfum de qualité. Disponible immédiatement.",
     categorie: "produit vestimentaire",
-    whatsapp: "https://wa.me/22996704876?text=Je suis intéressé par le parfum"
+    lien: "https://www.lien-affiliation.com/parfum"
   },
-      
-                // Catégorie CUISINE
   {
     nom: "Thémos",
     image: "images/Thémos.jpg",
     description: "Disponible immédiatement.",
     categorie: "Cuisine",
-    whatsapp: "https://wa.me/22996704876?text=Je suis intéressé par le Thémos"
+    lien: "https://www.lien-affiliation.com/themos"
   },
-
   {
     nom: "Moulinesse",
     image: "images/moulinesse.jpg",
     description: "Fufumix RAF de capacité 3L immédiatement disponible pour vous Prix TTC 10000.",
-    categorie: "cuisine",
-    whatsapp: "https://wa.me/22996704876?text=Je suis intéressé par le moulinesse"
+    categorie: "Cuisine",
+    lien: "https://www.lien-affiliation.com/moulinesse"
   },
-
   {
     nom: "Casseroles",
     image: "images/casserole.jpg",
-    description: "Casserole de table lot de 13 pièces Immédiatement disponible .",
+    description: "Casserole de table lot de 13 pièces Immédiatement disponible.",
     categorie: "Cuisine",
-    whatsapp: "https://wa.me/22996704876?text=Je suis intéressé par la casserole"
+    lien: "https://www.lien-affiliation.com/casserole"
   },
-
   {
-    nom: "verres",
+    nom: "Verres",
     image: "images/verre.jpg",
     description: "Verre à eau lisse Immédiatement disponible à 5000.",
     categorie: "Cuisine",
-    whatsapp: "https://wa.me/22996704876?text=Je veux ces verres"
+    lien: "https://www.lien-affiliation.com/verres"
   },
-
   {
-    nom: "ventilateur",
+    nom: "Ventilateur",
     image: "images/ventilateur.jpg",
-    description: "Grand ventilateur de chambre, bureau, boutique,salon etc🥳🥳🥳 À liquider à 15500 ",
+    description: "Grand ventilateur de chambre, bureau, boutique, salon, etc. À liquider à 15500.",
     categorie: "Refroidisseur",
-    whatsapp: "https://wa.me/22996704876?text=Je veux ce ventilateur"
+    lien: "https://www.lien-affiliation.com/ventilateur"
   },
-
   {
     nom: "Valise",
     image: "images/valise.jpg",
     description: "Valise de haute qualité.",
     categorie: "valise",
-    whatsapp: "https://wa.me/22996704876?text=Je veux cette valise"
+    lien: "https://www.lien-affiliation.com/valise"
   }
 ];
 
@@ -64,7 +57,7 @@ const conteneur = document.querySelector('.produits');
 // Fonction pour afficher les produits
 function afficherProduits(categorie) {
   conteneur.innerHTML = ''; // Vider le conteneur à chaque appel
-  const produitsFiltres = categorie === 'tous' ? produits : produits.filter(p => p.categorie === categorie);
+  const produitsFiltres = categorie === 'tous' ? produits : produits.filter(p => p.categorie.toLowerCase() === categorie.toLowerCase());
 
   produitsFiltres.forEach(p => {
     conteneur.innerHTML += `
@@ -72,7 +65,7 @@ function afficherProduits(categorie) {
         <img src="${p.image}" alt="${p.nom}">
         <h3>${p.nom}</h3>
         <p>${p.description}</p>
-        <a href="${p.whatsapp}" target="_blank">Commander sur WhatsApp</a>
+        <a href="${p.lien}" target="_blank" class="bouton-produit">Voir le produit</a>
       </div>
     `;
   });
@@ -104,13 +97,13 @@ searchInput.addEventListener("input", () => {
         <img src="${p.image}" alt="${p.nom}">
         <h3>${p.nom}</h3>
         <p>${p.description}</p>
-        <a href="${p.whatsapp}" target="_blank">Commander sur WhatsApp</a>
+        <a href="${p.lien}" target="_blank" class="bouton-produit">Voir le produit</a>
       </div>
     `;
   });
 });
 
-
+// Menu responsive
 function toggleMenu() {
   const nav = document.getElementById('nav-links');
   nav.classList.toggle('hidden');
