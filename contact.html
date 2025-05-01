@@ -33,24 +33,23 @@
     <div class="top-bar">
       <div class="menu-toggle" onclick="toggleMenu()">☰</div>
       <div class="logo">HISHAM<span>SHOP</span></div>
-      <div class="cart">453722002837 CFA</div>
     </div>
 
     <nav id="nav-links" class="hidden">
-      <a href="index.html">Accueil</a>
+      <a href="index.html" >Accueil</a>
       <a href="boutique.html">Boutique</a>
       <a href="a-propos.html">À propos</a>
       <a href="contact.html" class="active">Contact</a>
     </nav>
+    <div class="cart">CFA</div>
   </header>
 
   <main class="contact">
     <section class="contact-section">
       <h2>Contactez-nous</h2>
       <form id="contactform">
-        <input type="text" name="nom" placeholder="Votre nom" required />
-        <textarea name="message" placeholder="Votre message" rox="5" required></textarea>
-        <button type="submit">Envoyer sur WhatsApp</button>
+        <textarea name="message" id="message" placeholder="Votre message" rox="5" required></textarea>
+        <button onclick="sendMessage()" type="submit">Envoyer sur WhatsApp</button>
       </form>
     </section>
   </main>
@@ -115,16 +114,21 @@
   </div>
 </footer>
 
+<script>
+  function sendMessage() {
+      var message = document.getElementById("message").value;
+      var phoneNumber = "22996704876";  // Remplace par ton numéro WhatsApp au format international
 
-  <script>
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const nom = document.getElementById('nom').value;
-      const message = document.getElementById('message').value;
-      const url = `https://wa.me/2290196704876?text=Bonjour,%20je%20suis%20${encodeURIComponent(nom)}.%20${encodeURIComponent(message)}`;
-      window.open(url, '_blank');
-    });
-  </script>
+      // Encode le message pour s'assurer qu'il est compatible avec l'URL
+      var encodedMessage = encodeURIComponent(message);
+
+      // Crée l'URL WhatsApp
+      var whatsappURL = `https://wa.me/${22996704876}?text=${encodedMessage}`;
+
+      // Ouvre le lien WhatsApp dans une nouvelle fenêtre
+      window.open(whatsappURL, '_blank');
+  }
+</script>
+  
 </body>
 </html>
